@@ -2,7 +2,9 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="main.css">
+
+        <link rel="stylesheet" href="main.css">
+
 </head>
 <body>
 
@@ -33,9 +35,7 @@
         <a class="prev" onclick="plusSlides(-1)">&#10094</a>
         <a class="next" onclick="plusSlides(1)">&#10095</a>
     </div>
-    <br>
-
-
+    <br/>
     <!-- The dots/circles -->
     <div style="text-align:center">
         <span class="dot" onclick="currentSlides(1)"></span>
@@ -43,6 +43,68 @@
         <span class="dot" onclick="currentSlides(3)"></span>
     </div>
 
+    <br>
+    <div class="header" id="myHeader">
+        <h1>Image grid</h1>
+        <p>Click on the buttons to change the grid view.</p>
+        <button class="btn" onclick="one()">1</button>
+        <button class="btn" onclick="two()">2</button>
+        <button class="btn" onclick="three()">3</button>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+        </div>
+        <div class="column">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+        </div>
+        <div class="column">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+        </div>
+        <div class="column">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+            <img src="images/grid1.jpg">
+            <img src="images/grid2.jpg">
+            <img src="images/grid3.jpg">
+            <img src="images/grid4.jpg">
+            <img src="images/grid5.jpg">
+        </div>
+    </div>
+
+    
+
+<!-- slide show script -->
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -71,6 +133,47 @@ function showSlides(n){
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
 }
+</script>
+<script>
+// <!-- grid script -->
+// Get the elements with class="column"
+var elements = document.getElementsByClassName("column");
+
+// Declare a "loop" variable
+var j;
+
+// Full-width images
+function one(){
+    for (j =0; j<elements.length; j++){
+        elements[j].style.flex = "100";
+    }
+}
+
+// Two images side by side
+function two(){
+    for (j =0; j<elements.length; j++){
+        elements[j].style.flex = "50%";
+    }
+}
+
+// 
+function three(){
+    for (j =0; j<elements.length; j++){
+        elements[j].style.flex = "0%";
+    }
+}
+
+// Add active class to the current button (highlight it)
+var header = document.getElementById("myHeader");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
 </script>
 
 </body>
