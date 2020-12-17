@@ -12,6 +12,7 @@ public class BoardController {
     @GetMapping("/list")
     public String BoardForm(Model model){
 
+        
 
         return "boardForm";
     }
