@@ -1,4 +1,7 @@
 {
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.jdt.ls.vmargs": "-Dfile.encoding=utf8 -XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m",
     "liveServer.settings.port": 5599,
-    "liveServer.settings.multiRootWorkspaceName": "Board"
+    "liveServer.settings.multiRootWorkspaceName": "Board",
+
 }
