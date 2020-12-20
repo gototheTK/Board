@@ -1,0 +1,5 @@
+org\board\controller\BoardControllerTests.class
+org\board\service\BoardServiceTests.class
+org\board\persistence\DataSourceTests.class
+org\board\persistence\JDBCTests.class
+org\board\mapper\BoardMapperTests.class

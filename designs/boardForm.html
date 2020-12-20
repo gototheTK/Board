@@ -47,7 +47,8 @@ div,span, label, input{
 
 
 .search{
-    
+    margin-left:25%;
+    width: 100%;
     background-color: #282b2c;
     margin-top: 1%;
     opacity: 0.8;
@@ -56,7 +57,7 @@ div,span, label, input{
 
 .search input[type=text]{
     float:left;
-    width: 50%;
+    width: 57%;
     box-sizing: border-box;
     border: 2px solid #0f1011;
     border-radius: 4px;
@@ -65,7 +66,6 @@ div,span, label, input{
     background-position:  10px, 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
-    margin-left: 25%;
 }
 
 .search input[type=text]:hover{
@@ -86,8 +86,10 @@ div,span, label, input{
     background: #282b2c;
     border-radius: 4px;
     font-size: 17px;
-    border: none;
     cursor:pointer;
+    box-sizing: border-box;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
 }
 
 .search button[type=submit]:hover{
@@ -103,9 +105,80 @@ div,span, label, input{
     margin-bottom: 3%;
     opacity: 0.8;
     overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
+    font-size: 20px;
 }
 
+
+table{
+    width: 100%;
+    table-layout: fixed;
+}
+
+th{
+    text-align: center;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
     
+}
+
+
+.th1{
+    width:30%;
+}
+.th2{
+    width:15%;
+}
+.th3{
+    width:10%;
+}
+
+td{
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    border-top: 2px solid #0f1011;
+    border-bottom: 2px solid #0f1011;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 5px;   
+}
+
+
+
+tr:hover {
+    background-color: #181A1b;
+}
+
+::-webkit-scrollbar{ 
+    background-color: transparent; 
+    width: 20px;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-button{
+    background-color: transparent; 
+    width: 20px;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: transparent;
+    width: 20px;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
+}
+
+
 
 </style>
 </head>
@@ -118,14 +191,292 @@ div,span, label, input{
         </div>
     
         <div class="search">
-            
-            <input type="text" name="search" placeholder="Search..">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <i class="fa fa-search" style="float:left; position: absolute; margin-top: 1.27%; margin-left: 1%;"></i>
+            <input type="text" name="search" placeholder="Search...">
+            <!--<button type="submit"><i class="fa fa-search"></i></button> -->
         </div>
 
         <div class="list">
             <table>
-                <p>hey</p>
+                <thead>
+                    <tr>
+                        <th class="th1">제목</th>
+                        <th class="th2">작성자</th>
+                        <th class="th3">날짜</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        
+                        <td>홀호러앟러ㅏ뤄ㅏ루퍼ㅏ루펄ㅇ푸라ㅓ푸러ㅏ푸</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                       
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>하마에요유</td>
+                        <td>20-12-12</td>
+                    </tr>
             </table>
         </div>
 
