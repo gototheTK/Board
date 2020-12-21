@@ -11,21 +11,21 @@
 <style>
 
 body, html {
-  height: 93%;
-  width: 95%;
+  height: 98%;
+  width: 97%;
   background-color:#181A1b;
   
 }
 div,span, label, input{
-    background-color:#181A1b;
+    background-color:transparent;
     color: #ffffff; 
 }
 
 
 #bg{
     display: block;
-    margin-top: 2%;
-    margin-left: 5%;
+    margin-left: 2.6%;
+    overflow-x: hidden;
 
     /* The image used */
     background-image: url("/resources/images/boardForm_background.gif");
@@ -44,8 +44,9 @@ div,span, label, input{
 
 
 .top{
-    margin-top: 5%;
-    margin-left: 30%;
+    background-color: transparent;
+    margin-top: 1%;
+    margin-left: 35%;
     opacity: 0.8;
 }
 
@@ -61,7 +62,7 @@ div,span, label, input{
 
 .search input[type=text]{
     float:left;
-    width: 57%;
+    width: 50%;
     box-sizing: border-box;
     border: 2px solid #0f1011;
     border-radius: 4px;
@@ -82,21 +83,21 @@ div,span, label, input{
     border: 2px solid rgb(14, 13, 13);
 }
 
-.search button[type=submit]{
+.search button{
     float: left;
     margin-left: 1%;
     width: 6%;
     padding: 15px;
     background: #282b2c;
     border-radius: 4px;
-    font-size: 17px;
+    font-size: 15px;
     cursor:pointer;
     box-sizing: border-box;
     border: 2px solid #0f1011;
     border-radius: 4px;
 }
 
-.search button[type=submit]:hover{
+.search button:hover{
     background-color: #181A1b;
 }
 
@@ -183,6 +184,116 @@ tr:hover {
 }
 
 
+/* Full-width input fields */
+input.title, textarea.content {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 2px solid #0f1011;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #282b2c;
+  color: white;
+  resize:none;
+  font-weight: bolder;
+  font-size:20;
+
+}
+
+
+input.title:focus, textarea.content:focus{
+    background-color: #181A1b;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+.container {
+  padding: 16px;
+  background-color: #282b2c;
+  opacity: 0.8;
+}
+
+/* The Modal (background) */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 97%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #282b2c;
+  opacity: 0.8;
+  margin: 0% 29%; /* 5% from the top, 15% from the bottom and centered */
+  border: 2px solid #0f1011;
+  border-radius: 4px;
+  width: 50%; /* Could be more or less, depending on screen size */
+  
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+.register{
+    padding: 5px;
+    background: #282b2c;
+    color: white;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor:pointer;
+    box-sizing: border-box;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
+}
+
+.register:hover{
+    background: #181A1b;
+}
+
 
     
 
@@ -197,9 +308,9 @@ tr:hover {
         </div>
     
         <div class="search">
-            <i class="fa fa-search" style="float:left; position: absolute; margin-top: 1.27%; margin-left: 1%;"></i>
+            <i class="fa fa-search" style="float:left; position: absolute; margin-top: 1.2%; margin-left: 1%;"></i>
             <input type="text" name="search" placeholder="Search...">
-            <!--<button type="submit"><i class="fa fa-search"></i></button> -->
+            <button onclick="document.getElementById('id01').style.display='block'" class="register"><i class="far fa-edit"></i></button>
         </div>
 
         <div class="list">
@@ -223,6 +334,48 @@ tr:hover {
         </div>
 
     </div>
+
+
+    <div id="id01" class="modal">
+
+            <form class="modal-content animate" action="/board/register" method="post">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    <h1>글쓰기</h1>
+                </div>
+            
+                <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input type="text" class="title" name="title" placeholder="Enter Username"  required>
+            
+                <label for="psw"><b>Password</b></label>
+                <textarea class="content" name="content" placeholder="Enter Content" rows=5 draggable="false" required></textarea>
+                <!-- <<input type="password" placeholder="Enter Password" name="psw" required>> -->
+                    
+                <label>
+                </label>
+                </div>
+            
+                <div class="container">
+                <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="register">
+                제출
+                </button>
+                <input type="hidden" name="writer" value="unknown"/>
+                </div>
+            </form>
+        </div>
+            
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
 </body>
 </html>

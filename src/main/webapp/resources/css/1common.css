@@ -1,4 +1,4 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+* {font-family: Arial, Helvetica, sans-serif;}
 
 
 
@@ -9,12 +9,14 @@ a:link {
 
 /* visited link */
 a:visited {
-  color: white;
+  color: black;
+  text-decoration-line: underline;
 }
 
 /* mouse over link */
 a:hover {
-  color: red;
+  color: white;
+  text-decoration-line: underline;
 }
 
 /* selected link */
