@@ -1,10 +1,36 @@
 * {font-family: Arial, Helvetica, sans-serif;}
 
+body, html {
+  height: 98%;
+  width: 97%;
+  background-color:#181A1b;
+}
+div,span, label, input{
+  background-color: transparent;
+  color: #ffffff; 
+}
 
+button{
+  padding: 5px;
+  background: #282b2c;
+  color: white;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor:pointer;
+  box-sizing: border-box;
+  border: 2px solid #0f1011;
+  border-radius: 4px;
+}
+
+
+button:hover{
+  background-color: #181A1b;
+}
 
 /* unvisited link */
 a:link {
   color: white;
+  text-decoration: none;
 }
 
 /* visited link */

@@ -6,19 +6,36 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="1common.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/1common.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <style>
 
+
 body, html {
-  height: 98%;
-  width: 97%;
-  background-color:#181A1b;
-  
+    height: 98%;
+    width: 97%;
+    background-color:#181A1b;
 }
 div,span, label, input{
-    background-color:transparent;
+    background-color: transparent;
     color: #ffffff; 
+}
+
+button{
+    padding: 5px;
+    background: #282b2c;
+    color: white;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor:pointer;
+    box-sizing: border-box;
+    border: 2px solid #0f1011;
+    border-radius: 4px;
+}
+
+
+button:hover{
+    background-color: #181A1b;
 }
 
 
@@ -26,7 +43,7 @@ div,span, label, input{
     display: block;
     margin-left: 2.6%;
     overflow-x: hidden;
-
+    overflow-y: hidden;
     /* The image used */
     background-image: url("/resources/images/boardForm_background.gif");
 
@@ -42,10 +59,8 @@ div,span, label, input{
 }
 
 
-
 .top{
     background-color: transparent;
-    margin-top: 1%;
     margin-left: 35%;
     opacity: 0.8;
 }
@@ -96,6 +111,11 @@ div,span, label, input{
     border: 2px solid #0f1011;
     border-radius: 4px;
 }
+
+
+
+
+
 
 .search button:hover{
     background-color: #181A1b;
@@ -184,6 +204,8 @@ tr:hover {
 }
 
 
+
+
 /* Full-width input fields */
 input.title, textarea.content {
   width: 100%;
@@ -221,7 +243,7 @@ input.title:focus, textarea.content:focus{
 
 /* The Modal (background) */
 .modal {
-  display: block; /* Hidden by default */
+  display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -303,12 +325,12 @@ input.title:focus, textarea.content:focus{
 
     <div id="bg">
 
-        <div class="top">
-            <h1 style="font-size: 50px;">The Board By JCH</h1>
+         <div class="top">
+            <h1 style="font-size: 45px;">The Board By JCH</h1>
         </div>
     
         <div class="search">
-            <i class="fa fa-search" style="float:left; position: absolute; margin-top: 1.2%; margin-left: 1%;"></i>
+            <i class="fa fa-search" style="float:left; position:absolute; margin-top: 1.3%; margin-left: 1%"></i>
             <input type="text" name="search" placeholder="Search...">
             <button onclick="document.getElementById('id01').style.display='block'" class="register"><i class="far fa-edit"></i></button>
         </div>
@@ -322,12 +344,24 @@ input.title:focus, textarea.content:focus{
                         <th class="th3">날짜</th>
                     </tr>
                 </thead>
+                <jsp:useBean id="now" class="java.util.Date" />
+                <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today"/>
                 <c:forEach items="${list}" var="board">
+                <fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" var="day"/>
                     <tr>
-                        <td><c:out value="${board.title}"/></td>
+                        <td>
+                        <a href="javascript:reading(${board.bno})"><c:out value="${board.title}"/></a></td>
                         <td><c:out value="${board.writer}"/></td>
-                        <td><fmt:formatDate pattern="yy-MM-dd"
-                        value="${board.regdate}"/></td>
+                        <td>
+                        <c:choose>
+                            <c:when test="${today le day}">
+                                <fmt:formatDate value="${board.regdate}" pattern="hh:mm:ss"/>
+                            </c:when>
+                            <c:otherwise>
+                                <fmt:formatDate value="${board.regdate}" pattern="yy-MM-dd"/>
+                            </c:otherwise>
+                        </c:choose>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
@@ -363,18 +397,70 @@ input.title:focus, textarea.content:focus{
                 <input type="hidden" name="writer" value="unknown"/>
                 </div>
             </form>
-        </div>
+    </div>
+
+
+    <div id="id02" class="modal">
+
+            
+                <div class="modal-content animate">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <h1 id="title">제목</h1>
+                    </div>
+                
+                    <div class="container">
+                    <label for="uname"><b>작성자</b></label>
+                    <input type="text" id="writer" class="title" name="title" placeholder="Enter Username" readonly="readonly"  required>
+                
+                    <label for="psw"><b>내용</b></label>
+                    <textarea class="content" id="content" name="content" placeholder="Enter Content" rows=5 draggable="false" readonly="readonly" required></textarea>
+                    <label>
+                    </label>
+                    </div>
+                
+                    <div class="container">
+                    <button onclick="document.getElementById('id02').style.display='none'" class="modify">닫기</button>
+                    </div>
+                </div>
+                
+    </div>
+
+
             
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
+var board_modal = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+
+    if(event.target == board_modal){
+        board_modal.style.display = "none";
+    }
 }
+
+function reading(url){
+    var xhttp, xmlDoc;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 200){
+            xmlDoc = this.response;
+            document.getElementById('title').innerHTML= xmlDoc["title"];
+            document.getElementById('writer').value= xmlDoc["writer"];
+            document.getElementById('content').innerHTML= xmlDoc["content"];
+            document.getElementById('id02').style.display='block';
+        }
+    }
+    xhttp.open("GET", "/board/get/"+url, true);
+    xhttp.responseType = 'json';
+    xhttp.send();
+}
+
 </script>
 
 </body>
